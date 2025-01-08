@@ -1,8 +1,13 @@
 <div class="container">
     <a role="button" [routerLink]="['/posts/new']">Nouveau Post</a>
+    <div *ngIf="deletionMessage" class="alert alert-info">
+      {{ deletionMessage }}
+    </div>
+  
     <article *ngFor="let post of postList" class="d-flex justify-content-around">
-        {{ post.title }}
-        <a [routerLink]="['/posts/'+post.id+'/detail']">Afficher détails</a>
-        <button (click)="deletePost(post.id)">Supprimer</button>
+      {{ post.title }}
+      <a [routerLink]="['/posts/' + post.id + '/detail']">Afficher détails</a>
+      <button (click)="deletePost(post.id)">Supprimer</button>
     </article>
-</div>
+  </div>
+  
